@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>New Game</h1>
+
+  <ul class="list">
+    <% @letters.each do |l| %>
+      <li><%= l %></li>
+    <% end %>
+  </ul>
+
+  <form action="/score">
+    <div class="form-group">
+      <label for="exampleInputEmail1">What is the longest word you can find?</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your word" name="word">
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= hidden_field_tag :letters, @letters %>
+    </div>
+    <input type="submit" class="btn btn-primary">
+  </form>
+</div>
